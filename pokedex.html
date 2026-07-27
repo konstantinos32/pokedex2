@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pokedex</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <nav class="bg-red-500 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-2xl font-bold">My Pokédex</h1>
+
+            <div class="space-x-4">
+                <a href="index.html" class="hover:underline">Home</a>
+                <a href="pokedex.html" class="hover:underline">My Pokédex</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-6">
+
+        <div
+            id="savedPokemonContainer"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+
+        </div>
+
+    </main>
+
+    <script src="pokedex.js"></script>
+
+</body>
+</html>
