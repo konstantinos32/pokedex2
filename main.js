@@ -10,52 +10,62 @@ const apiUrl = "https://pokeapi.co/api/v2/pokemon";
 
 // Functions
 async function loadPokemon() {
-    const response= await fetch(apiUrl);
-    const data= await response.json();
-  
-     for (const pokemon of data.results) {
+  const response = await fetch(apiUrl);
+  const data = await response.json();
 
-        getPokemonDetails(pokemon.url);
-
-}
-
+  for (const pokemon of data.results) {
+    getPokemonDetails(pokemon.url);
+  }
 }
 
 async function getPokemonDetails(url) {
-    const response= await fetch(url);
-    const pokemon= await response.json();
-    displayPokemon(pokemon);
+  const response = await fetch(url);
+  const pokemon = await response.json();
+  displayPokemon(pokemon);
 }
 function displayPokemon(pokemon) {
+  const hp = pokemon.stats.find((stat) => stat.stat.name === "hp").base_stat;
 
-    //Card creation
-    const card= document.createElement("div");
-    card.className="bg-white round-lg shadow-md p-4";
+  const attack = pokemon.stats.find(
+    (stat) => stat.stat.name === "attack",
+  ).base_stat;
 
-    //Image creation
-    const image=document.createElement("img");
-    image.src= pokemon.sprites.front_default;
-    image.alt=pokemon.name;
-    image.className="mx-auto";
+  const defense = pokemon.stats.find(
+    (stat) => stat.stat.name === "defense",
+  ).base_stat;
 
-    //name creation
-    const name= document.createElement("h2");
-    name.textContent=pokemon.name;
-    name.className = "text-xl font-bold text-center mt-3 capitalize";
+  const speed = pokemon.stats.find(
+    (stat) => stat.stat.name === "speed",
+  ).base_stat;
 
-    //image and name addition to the card
-    card.appendChild(image);
-    card.appendChild(name);
+  console.log(hp);
+  console.log(attack);
+  console.log(defense);
+  console.log(speed);
 
-    // card added to the page
-    pokemonContainer.appendChild(card);
+  //Card creation
+  const card = document.createElement("div");
+  card.className = "bg-white rounded-lg shadow-md p-4";
+  //Image creation
+  const image = document.createElement("img");
+  image.src = pokemon.sprites.front_default;
+  image.alt = pokemon.name;
+  image.className = "mx-auto";
+
+  //name creation
+  const name = document.createElement("h2");
+  name.textContent = pokemon.name;
+  name.className = "text-xl font-bold text-center mt-3 capitalize";
+
+  //image and name addition to the card
+  card.appendChild(image);
+  card.appendChild(name);
+
+  // card added to the page
+  pokemonContainer.appendChild(card);
 }
 
-
-
 // Event Listeners
-
-
 
 // Start App
 loadPokemon();
