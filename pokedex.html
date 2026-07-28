@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pokédex</title>
 
-    <script src="./pokedex.js" defer></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-gray-100 min-h-screen">
 
-    <nav>
-        <h1>My Pokédex</h1>
+    <!-- Navbar -->
+    <nav class="bg-red-500 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-2xl font-bold">Pokédex</h1>
 
-        <a href="./index.html">Home</a>
-        <a href="./pokedex.html">My Pokédex</a>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:underline">Home</a>
+                <a href="pokedex.html" class="hover:underline">My Pokédex</a>
+            </div>
+        </div>
     </nav>
 
     <main>
         <div id="savedPokemonContainer"></div>
     </main>
-
+  <script src="./pokedex.js" defer></script>
 </body>
 </html>
