@@ -85,10 +85,10 @@ catchButton.className =
 
 catchButton.addEventListener("click", function () {
 
-    let pokedex =
-        JSON.parse(localStorage.getItem("pokedex")) || [];
+    let caughtPokemon =
+        JSON.parse(localStorage.getItem("caughtPokemon")) || [];
 
-        const existingPokemon = pokedex.find(
+        const existingPokemon = caughtPokemon.find(
         item => item.id === pokemon.id
     );
 
