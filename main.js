@@ -84,7 +84,18 @@ catchButton.className =
     "bg-green-500 text-white px-4 py-2 rounded mt-4 w-full hover:bg-green-600";
 
 catchButton.addEventListener("click", function () {
-    console.log(`${pokemon.name} caught!`);
+
+    let pokedex =
+        JSON.parse(localStorage.getItem("pokedex")) || [];
+
+        const existingPokemon = pokedex.find(
+        item => item.id === pokemon.id
+    );
+
+    if (existingPokemon) {
+    alert(`${pokemon.name} is already in your Pokédex!`);
+    return;
+}
 });
 
     // Add elements to the card
