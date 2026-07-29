@@ -77,6 +77,16 @@ function displayPokemon(pokemon) {
     speedText.textContent = `Speed: ${speed}`;
     speedText.className = "mt-1";
 
+    // Create Catch button
+const catchButton = document.createElement("button");
+catchButton.textContent = "Catch";
+catchButton.className =
+    "bg-green-500 text-white px-4 py-2 rounded mt-4 w-full hover:bg-green-600";
+
+catchButton.addEventListener("click", function () {
+    console.log(`${pokemon.name} caught!`);
+});
+
     // Add elements to the card
     card.appendChild(image);
     card.appendChild(name);
@@ -84,6 +94,10 @@ function displayPokemon(pokemon) {
     card.appendChild(attackText);
     card.appendChild(defenseText);
     card.appendChild(speedText);
+    card.appendChild(catchButton);
+
+
+    
 
     // Add card to the page
     pokemonContainer.appendChild(card);
